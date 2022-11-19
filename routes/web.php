@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/reload-captcha', [RegisterController::class, 'reloadCaptcha']);
 
-Route::resource('categories', App\Http\Controllers\CategoryController::class);
-Route::resource('tags', App\Http\Controllers\TagController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('categories', App\Http\Controllers\CategoryController::class);
+    Route::resource('tags', App\Http\Controllers\TagController::class);
+
+    // Manage Posts
+    Route::get('posts/trash', [App\Http\Controllers\PostController::class , 'trash'])->name('posts.trash');
+    Route::post('posts/trash/{id}/restore', [App\Http\Controllers\PostController::class , 'restore'])->name('posts.restore');
+    Route::delete('posts/{id}/delete-permanent', [App\Http\Controllers\PostController::class,'deletePermanent'])->name('posts.deletePermanent');
+    Route::resource('posts', App\Http\Controllers\PostController::class);
+});

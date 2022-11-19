@@ -6,11 +6,11 @@
             <script>
                 document.write(new Date().getFullYear());
             </script>
-            , made with ❤️ by
-            <a href="https://themeselection.com" target="_blank"
-                class="footer-link fw-bolder">ThemeSelection</a>
+            ,
+            <a href="https://bmkg.go.id" target="_blank"
+                class="footer-link fw-bolder">Badan Meteorologi Klimatologi dan Geofisika</a>
         </div>
-        <div>
+        {{-- <div>
             <a href="https://themeselection.com/license/" class="footer-link me-4"
                 target="_blank">License</a>
             <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
@@ -21,6 +21,6 @@
 
             <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
                 target="_blank" class="footer-link me-4">Support</a>
-        </div>
+        </div> --}}
     </div>
 </footer>
