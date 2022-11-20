@@ -117,7 +117,7 @@
 
 
     <!-- ======= Recent  Posts Section ======= -->
-    <section id="recent-posts" class="recent-posts sections-bg">
+    <section id="recent-posts" class="recent-posts sections-bg text-dark">
         <div class="container" data-aos="fade-left">
 
 
@@ -163,6 +163,58 @@
 
         </div>
     </section><!-- End Recent  Posts Section -->
+
+    <!-- ======= Image Content Section ======= -->
+    <section id="image-content" class="image-content sections-bg text-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-header border-bottom border-success mb-3">
+                        <h5>Citra Satelit</h5>
+                    </div>
+                    <div class="img-container bg-white p-3">
+                        <img class="img-fluid" src="https://inderaja.bmkg.go.id/IMAGE/HIMA/H08_EH_Indonesia.png" alt="Citra Satelit">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-header border-bottom border-success mb-3">
+                        <h5>Citra Radar</h5>
+                    </div>
+                    <div class="img-container bg-white p-3">
+                        <img class="img-fluid" src="https://inderaja.bmkg.go.id/Radar/Indonesia_ReflectivityQCComposite.png" alt="Citra Radar">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-header border-bottom border-success mb-3">
+                        <h5>Informasi Iklim</h5>
+                    </div>
+                    <div class="img-container bg-white p-3">
+                        <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/CEWS/pch/pch.bulan.1.cond1.png" alt="Informasi Iklim">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-header border-bottom border-success mb-3">
+                        <h5>Prakiraan Tinggi Gelombang Tinggi</h5>
+                    </div>
+                    <div class="img-container bg-white p-3">
+                        <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/MEWS/maritim/gelombang_maritim.png" alt="Prakiraan Gelombang Tinggi">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-header border-bottom border-success mb-3">
+                        <h5>Potensi Kebakaran Hutan</h5>
+                    </div>
+                    <div class="img-container bg-white p-3">
+                        <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/MEWS/spartan/36_indonesia_ffmc_01.png" alt="Potensi Kebakaran Hutan">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </section>
+    <!-- End Image Content Section -->
+
 @endsection
 
 @section('custom-script')
