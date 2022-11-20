@@ -372,7 +372,7 @@ section {
     padding: 0 3px;
     font-family: var(--font-secondary);
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
     color: rgba(0, 0, 0);
     white-space: nowrap;
     transition: 0.3s;
@@ -437,7 +437,7 @@ section {
     padding: 10px 20px;
     font-size: 15px;
     text-transform: none;
-    font-weight: 600;
+    font-weight: 400;
     color: #006a5d;
   }
 
@@ -509,7 +509,7 @@ section {
     inset: 0;
     padding: 50px 0 10px 0;
     margin: 0;
-    background: rgba(0, 131, 116, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -523,7 +523,7 @@ section {
     padding: 10px 20px;
     font-family: var(--font-primary);
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 400;
     color: #000;
     white-space: nowrap;
     transition: 0.3s;
@@ -575,7 +575,7 @@ section {
   }
 
   .mobile-nav-show {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 28px;
     cursor: pointer;
     line-height: 0;
@@ -585,7 +585,7 @@ section {
   }
 
   .mobile-nav-hide {
-    color: #fff;
+    color: rgba(0, 0, 0, 0.6);
     font-size: 32px;
     cursor: pointer;
     line-height: 0;
@@ -2603,7 +2603,7 @@ section {
 --------------------------------------------------------------*/
 .footer {
   font-size: 14px;
-  background-color: var(--color-primary);
+  background-color: rgb(0, 1, 10);
   padding: 50px 0;
   color: white;
 }

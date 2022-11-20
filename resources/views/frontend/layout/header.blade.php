@@ -14,10 +14,10 @@
     </div>
   </section><!-- End Top Bar -->
 
-  <header id="header" class="header d-flex align-items-center bg-white text-dark ">
+  <header id="header" class="header d-flex align-items-center bg-white  ">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between " >
-      <a href="index.html" class="logo d-flex align-items-center ">
+      <a href="{{url('/')}}" class="logo d-flex align-items-center ">
         <!-- Uncomment the line below if you also wish to use an image logo -->
          
             <img  src="{{url('img/logo-bmkg.png')}}" alt="Logo BMKG"> 
@@ -28,12 +28,12 @@
       </a>
       <nav id="navbar" class="navbar ">
         <ul>
-          <li ><a href="#hero">Beranda</a></li>
-          <li ><a href="#about">Cuaca</a></li>
-          <li><a href="#services">Gempabumi & Tsunami</a></li>
-          <li><a href="#services">Iklim</a></li>
-          <li><a href="#portfolio">Berita</a></li>
-          <li><a href="#team">Profil</a></li>
+          <li ><a href="{{url('/')}}">Beranda</a></li>
+          <li ><a href="#">Cuaca</a></li>
+          <li><a href="#">Gempabumi & Tsunami</a></li>
+          <li><a href="#">Iklim</a></li>
+          <li><a href="#">Berita</a></li>
+          <li><a href="#">Profil</a></li>
          
          
          

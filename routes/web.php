@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Auth\RegisterController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-        return view('frontend.beranda');
+Route::get('/', [FrontEndController::class,'beranda']);
+Route::get('/berita/{slug}', [FrontEndController::class,'post']);
+
+Route::get('/template', function () {
+    return view('frontend.basetemplate');
 });
+
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 });

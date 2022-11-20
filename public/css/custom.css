@@ -1,9 +1,9 @@
-.bg-malam {
+.pm {
     background-image: url('https://bmkg.go.id/asset/img/bg-cuaca/cerah-berawan-malam.jpg');
     color: #fff;
     font-weight: 600;
 }
-.bg-siang {
+.am {
     background-image: url('https://bmkg.go.id/asset/img/bg-cuaca/cerah-berawan-siang.jpg');
     color: #fff;
     font-weight: 600;
