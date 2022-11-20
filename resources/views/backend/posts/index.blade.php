@@ -47,7 +47,7 @@
                                         <td>{{ $item->category->name }}</td>
                                         <td>
                                             <a href="{{ route('posts.edit', $item->id) }}"
-                                                class="btn btn-success btn-sm">Edit</a>
+                                                class="btn btn-primary btn-sm">Edit</a>
                                             <form method="POST" action="{{ route('posts.destroy', [$item->id]) }}"
                                                 class="d-inline" onsubmit="return confirm('Move post to trash ?')">
                                                 @csrf
