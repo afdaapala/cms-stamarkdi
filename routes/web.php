@@ -23,9 +23,7 @@ Route::get('/template', function () {
     return view('frontend.basetemplate');
 });
 
-Route::get('/dashboard', function () {
-    return view('backend.dashboard');
-});
+
 
 
 Auth::routes();
@@ -35,6 +33,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/reload-captcha', [RegisterController::class, 'reloadCaptcha']);
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('backend.dashboard');
+    });
     Route::resource('categories', App\Http\Controllers\CategoryController::class);
     Route::resource('tags', App\Http\Controllers\TagController::class);
 
