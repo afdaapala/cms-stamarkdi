@@ -39,22 +39,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($posts as $key => $item)
+                                @foreach ($posts as $item)
                                     <tr>
-                                        <th scope="row">{{ ++$key }}</th>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ Str::limit(strip_tags($item->desc), 60) }}</td>
-                                        <td>{{ $item->category->name }}</td>
-                                        <td>
-                                            <a href="{{ route('posts.edit', $item->id) }}"
-                                                class="btn btn-primary btn-sm">Edit</a>
+                                        <td>{{$item->id}}</td>
+                                        <td>{{$item->title}}</td>
+                                        <td>{{substr($item->desc,0,50)}}</td>
+                                        <td>{{$item->category->name}}</td>
+                                        <td> <a href="{{ route('posts.edit', $item->id) }}"
+                                                class="btn btn-success btn-sm">Edit</a>
                                             <form method="POST" action="{{ route('posts.destroy', [$item->id]) }}"
                                                 class="d-inline" onsubmit="return confirm('Move post to trash ?')">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="submit" value="Delete" class="btn btn-danger btn-sm">
-                                            </form>
-                                        </td>
+                                            </form></td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -1,3 +1,4 @@
+cms template bmkg author https://github.com/bimatriariyanto & https://github.com/rofifzm
 
 ## Installation & Setup
 
@@ -9,3 +10,4 @@ Lakukan pembuatan database pada mysql server.
 Sesuaikan pengaturan environment (di file .env) dengan user dan password database.<br>
 <strong>- php artisan key:generate</strong><br>
 <strong>- php artisan migrate</strong>
+<strong>- php artisan storage:link</strong>

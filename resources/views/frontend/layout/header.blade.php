@@ -19,12 +19,9 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between " >
       <a href="{{url('/')}}" class="logo d-flex align-items-center ">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-         
-            <img  src="{{url('img/logo-bmkg.png')}}" alt="Logo BMKG"> 
-         
-        
-         <h6 class="text-dark m-2">BMKG<span></span></h6>
-        
+        <img  src="{{url('img/logo-bmkg.png')}}" alt="Logo BMKG"> 
+        <img  src="{{url('img/logo-sultra.png')}}" alt="Logo BMKG"> 
+        <strong class="text-dark m-2">BMKG SULAWESI TENGGARA<span></span></strong>
       </a>
       <nav id="navbar" class="navbar ">
         <ul>
@@ -34,9 +31,7 @@
           <li><a href="#">Iklim</a></li>
           <li><a href="#">Berita</a></li>
           <li><a href="#">Profil</a></li>
-         
-         
-         
+
         </ul>
       </nav><!-- .navbar -->
 

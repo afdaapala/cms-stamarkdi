@@ -141,7 +141,6 @@
                                 </h2>
 
                                 <div class="d-flex align-items-center">
-                                   
                                     <div class="post-meta">
                                         <p class="post-author">{{ $p->user->name }}</p>
                                         <p class="post-date">
@@ -158,9 +157,6 @@
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-
-
-
         </div>
     </section><!-- End Recent  Posts Section -->
 
