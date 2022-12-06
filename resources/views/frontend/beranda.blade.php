@@ -2,7 +2,6 @@
 
 @section('content')
     <!-- ======= Section warning ======= -->
-    @if ($data['dataWarning'] != null || $data['dataWarning'] != '')
         <section id="warning" class="warning  bg-light text-dark">
             <div class="container" data-aos="fade-right">
                 <div class="row align-items-center">
@@ -14,18 +13,24 @@
                             {{ $data['dataWarning']->description }}
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="img-container  text-center ">
-                            <img src="{{ $data['dataWarning']->infografis }}" alt="infografis warning"
-                                style="max-height: 300px;">
-                        </div>
+                    <div class="col-md-3 card border-warning rounder">
+                            <div class="card-header"><h5><i class='fa-solid fa-exclamation-triangle' style="color:#ec971f;"></i> Peringatan Dini Cuaca Sulawesi Tenggara</h5></div>
+                            <div class="card-body" style="font-size: 12px;">
+                                <img class="img-fluid" src="{{ $data['dataWarning']->infografis }}" alt="gambar peringatan dini"><br>
+                        <div class="warningtext">
+                            <p class="limittext">
+                            {{ $data['peringatanterakhir'] }} "<br>"
+                            </p>
+                            </div>
+                            <p class="text-center">
+                            <button type="button" class="tombol btn btn-warning center" data-bs-toggle="modal" data-bs-target="#warningModal">Selengkapnya</button></p>
                     </div>
+                    </div>
+                </div>
                 </div>
             </div>
             </div>
         </section><!-- End section warning -->
-    @endif
-
     <!-- ======= Section gempa & cuaca ======= -->
     <section id="gempa-cuaca" class="gempa-cuaca bg-white text-dark">
         <div class="container " data-aos="fade-up">
@@ -131,7 +136,7 @@
                             <article>
 
                                 <div class="post-img">
-                                    <img src="{{ url($p->cover) }}" alt="" class="img-fluid">
+                                    <img src="{{ url('/storage/'.$p->cover) }}" alt="" class="img-fluid">
                                 </div>
 
                                 <p class="post-category">{{ $p->category->name }}</p>
@@ -209,16 +214,32 @@
         
 
     </section>
+
+    {{-- MODAL --}}
+    <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title" id="warningModal">Peringatan Dini Cuaca Sulawesi Tenggara</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row"><img class="img-fluid" src="{{ $data['dataWarning']->infografis }}" alt="">
+                    <i>{{ $data['peringatanterakhir'] }}</i><br></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+        </div>
+    </div>
     <!-- End Image Content Section -->
 
 @endsection
 
 @section('custom-script')
     <script>
-        console.log('TES')
-
-
-
+        // console.log('TES')
         const swiper = new Swiper('#swiper-cuaca', {
             loop: false,
             slidesPerView: 4,
@@ -230,7 +251,6 @@
                 el: ".swiper-pagination",
                 clickable: true,
             },
-
         });
         const swiperBerita = new Swiper('#swiper-berita', {
             loop: false,
@@ -244,5 +264,6 @@
                 clickable: true,
             },
         });
+
     </script>
 @endsection

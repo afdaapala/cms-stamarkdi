@@ -27,7 +27,10 @@
 
   <!-- Template Main CSS File -->
   <link href="{{url('frontend/assets/css/main.css')}}" rel="stylesheet">
+  <link href="{{url('frontend/assets/css/stamar.css')}}" rel="stylesheet">
   <link href="{{url('css/custom.css')}}" rel="stylesheet">
+
+  
 
 
   <!-- =======================================================
@@ -66,9 +69,10 @@
 
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
-  
   <!-- Template Main JS File -->
   <script src="{{url('frontend/assets/js/main.js')}}"></script>
+  <script src="{{url('frontend/assets/js/headjam.js')}}"></script>
+  
   @yield('custom-script')
 
 </body>

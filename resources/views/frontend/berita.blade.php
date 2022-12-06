@@ -14,7 +14,7 @@
               <article class="blog-details">
   
                 <div class="post-img">
-                  <img src="{{url($post->cover)}}" alt="" class="img-fluid">
+                  <img src="{{url('/storage/'.$post->cover)}}" alt="" class="img-fluid">
                 </div>
   
                 <h2 class="title">{{$post->title}}</h2>
@@ -56,7 +56,7 @@
                   <div class="mt-3">
                     @foreach ($recentPost as $p)
                     <div class="post-item mt-3">
-                      <img src="{{url($p->cover)}}" alt="">
+                      <img src="{{url('/storage/'.$p->cover)}}" alt="">
                       <div>
                         <h4><a href="{{url('/berita/'.$p->slug)}}">{{$p->title}}</a></h4>
                         <time datetime="2020-01-01">{{$p->created_at}}</time>

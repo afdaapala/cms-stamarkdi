@@ -54,11 +54,37 @@ class FrontEndController extends Controller
     //Get data Post
     $post = Post::with('user', 'category', 'tags')->limit(6)->get();
 
+    $xmlm5 = simplexml_load_file("https://data.bmkg.go.id/DataMKG/TEWS/autogempa.xml") or die("Gagal ambil data gempa");
+    $xmlpd = simplexml_load_file("http://datadisplay.bmkg.go.id/XML/Warning_Cuaca_Indonesia.xml") or die("Gagal ambil data warning cuaca");
+    $skip = true;
+    $peringatanterakhir = "Tidak ada peringatan dini cuaca wilayah Sulawesi Tenggara";
+    if (is_array($xmlpd) || is_object($xmlpd)) {
+      foreach ($xmlpd->info->data as $pdcuaca) {
+        // echo $pdcuaca->headline . "<br>"; 
+        if ($pdcuaca->headline == "Peringatan Dini Cuaca Sulawesi Tenggara") {
+          $skip = false;
+          $peringatanterakhir = $pdcuaca->description;
+        }
+        if ($skip) {
+          continue;
+        } else {
+          // echo $peringatanterakhir . "<br>";
+          // $peringatanterakhir = "Tidak ada peringatan dini cuaca wilayah Sulawesi Tenggara" . "<br>";
+          // echo "Tidak ada peringatan dini cuaca wilayah Sulawesi Tenggara";
+          break;
+        }
+      }
+    }
+
     $data = [
       'dataWarning' => $dataWarning,
       'dataGempa' => $dataGempa,
       'dataCuaca' => $dataCuaca,
-      'post' => $post
+      'post' => $post,
+      // 'xmlm5' => $xmlm5,
+      // 'xmlpd' => $xmlpd,
+      // 'skip' => $skip,
+      'peringatanterakhir' => $peringatanterakhir
     ];
 
     return view('frontend.beranda', compact('data'));
