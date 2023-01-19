@@ -47,3 +47,57 @@
     max-width: 230px;
     /* margin: 20px auto; */
 }
+.kaki a:link{
+    margin-left: 5px;
+    color: rgb(216, 216, 216);
+    text-decoration: none;
+}
+.kaki a:hover{
+    font-size: 105%;
+    margin-left: 5px;
+    color: #90EE90;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+.kaki a:visited{
+    margin-left: 5px;
+    color: lightgray;
+    text-decoration: none;
+}
+.navbar-brand .slogan {
+    display: inline-block;
+    color: #333;
+    font-family: Arial;
+    font-size: 12px;
+    margin-bottom: 0;
+    /* position: absolute; */
+    top: 95px;
+    left: 398px;
+}
+
+.legend {
+    max-width: 130px;
+    width: 50%;
+    opacity: 0.8;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    max-width: 500px;
+}
+
+.info h4,
+h6 {
+    margin: 0 0 5px;
+    color: #222;
+    /* text-align: center; */
+}
+
+#map{width:100%;height:175px;margin-top:10px}
+.shakemap{margin:0 auto;background-color:#379817;display:table}.shakemap:active{background-color:#2d7b13;border-color:#379817}.tsunami{margin:0 auto;background-color:purple;display:table}.tsunami:active{background-color:#5f005f;border-color:purple}hr{border:none;height:20px}hr:before{content:"* * *";text-align:center;display:block;color:purple;letter-spacing:16px}
+#mapmar{width:100%;height:450px;margin-top:20px}

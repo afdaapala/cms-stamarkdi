@@ -10,32 +10,35 @@ class FrontEndController extends Controller
   public function beranda()
   {
     //Get data Peringatan dini cuaca
-    $url = "https://data.mhews.id/api/warningcuaca/Sulawesi%20Tenggara";
-    $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    $headers = array(
-      "Apikey: Qyzq2rgEdpC46r2wz42bvqWSUIkD7y4W5PiN98AQhtJ7EMkjzROdJsTIEcxdo5ZA",
-      "Content-Type: application/json",
-    );
-    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-    $respWarning = curl_exec($curl);
-    curl_close($curl);
-    $dataWarning = json_decode($respWarning);
+    // $url = "https://data.mhews.id/api/warningcuaca/Sulawesi%20Tenggara";
+    // $curl = curl_init($url);
+    // curl_setopt($curl, CURLOPT_URL, $url);
+    // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    // $headers = array(
+    //   "Apikey: Qyzq2rgEdpC46r2wz42bvqWSUIkD7y4W5PiN98AQhtJ7EMkjzROdJsTIEcxdo5ZA",
+    //   "Content-Type: application/json",
+    // );
+    // curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    // $respWarning = curl_exec($curl);
+    // curl_close($curl);
+    // $dataWarning = json_decode($respWarning);
 
     //Get data Gempa
-    $urlGempa = "https://data.mhews.id/api/autogempa";
+    // $urlGempa = "https://data.mhews.id/api/autogempa";
+    $urlGempa = "https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json";
     $curlGempa = curl_init($urlGempa);
     curl_setopt($curlGempa, CURLOPT_URL, $urlGempa);
     curl_setopt($curlGempa, CURLOPT_RETURNTRANSFER, true);
-    $headers = array(
-      "Apikey: Qyzq2rgEdpC46r2wz42bvqWSUIkD7y4W5PiN98AQhtJ7EMkjzROdJsTIEcxdo5ZA",
-      "Content-Type: application/json",
-    );
-    curl_setopt($curlGempa, CURLOPT_HTTPHEADER, $headers);
+    // $headers = array(
+    //   "Apikey: Qyzq2rgEdpC46r2wz42bvqWSUIkD7y4W5PiN98AQhtJ7EMkjzROdJsTIEcxdo5ZA",
+    //   "Content-Type: application/json",
+    // );
+    // curl_setopt($curlGempa, CURLOPT_HTTPHEADER, $headers);
     $respGempa = curl_exec($curlGempa);
     curl_close($curlGempa);
     $dataGempa = json_decode($respGempa);
+
+
 
     //Get data Prakiraan Cuaca
     $urlCuaca = "https://data.mhews.id/api/cuaca?prov=Sulawesi%20Tenggara";
@@ -57,13 +60,18 @@ class FrontEndController extends Controller
     $xmlm5 = simplexml_load_file("https://data.bmkg.go.id/DataMKG/TEWS/autogempa.xml") or die("Gagal ambil data gempa");
     $xmlpd = simplexml_load_file("http://datadisplay.bmkg.go.id/XML/Warning_Cuaca_Indonesia.xml") or die("Gagal ambil data warning cuaca");
     $skip = true;
+    // $gempaTanggal = $xmlm5->Infogempa->gempa->Tanggal;
     $peringatanterakhir = "Tidak ada peringatan dini cuaca wilayah Sulawesi Tenggara";
+    $peringatanimg0 = "Tidak ada infografis peringatan dini terbaru";
     if (is_array($xmlpd) || is_object($xmlpd)) {
       foreach ($xmlpd->info->data as $pdcuaca) {
         // echo $pdcuaca->headline . "<br>"; 
         if ($pdcuaca->headline == "Peringatan Dini Cuaca Sulawesi Tenggara") {
           $skip = false;
           $peringatanterakhir = $pdcuaca->description;
+          $peringatanhead = $pdcuaca->headline;
+          $peringatanimg = $pdcuaca->ID_Kode;
+          // $peringatanimg0 = "https://warningcuaca.bmkg.go.id/infografis/CST/" . substr($peringatanimg, 3, 4) . "/" . substr($peringatanimg, 7, 2) . "/" . substr($peringatanimg, 9, 2) . "/" . $peringatanimg . "_image0.jpg";
         }
         if ($skip) {
           continue;
@@ -77,14 +85,16 @@ class FrontEndController extends Controller
     }
 
     $data = [
-      'dataWarning' => $dataWarning,
+      // 'dataWarning' => $dataWarning,
       'dataGempa' => $dataGempa,
       'dataCuaca' => $dataCuaca,
       'post' => $post,
-      // 'xmlm5' => $xmlm5,
-      // 'xmlpd' => $xmlpd,
+      'xmlm5' => $xmlm5,
+      // 'gTanggal' => $gempaTanggal,
+      'xmlpd' => $xmlpd,
       // 'skip' => $skip,
-      'peringatanterakhir' => $peringatanterakhir
+      'peringatanterakhir' => $peringatanterakhir,
+      // 'peringatanimg0' => $peringatanimg0
     ];
 
     return view('frontend.beranda', compact('data'));
