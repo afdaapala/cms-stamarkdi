@@ -20,7 +20,8 @@
 :root {
   --color-default: #0f1b85;
   --color-primary: #022c78;
-  --color-secondary: #38e45a;
+  /* --color-secondary: #38e45a; */
+  --color-secondary: #e9a615;
 }
 
 /* Smooth scroll behavior */
@@ -420,7 +421,7 @@ section {
     top: calc(100% + 30px);
     margin: 0;
     padding: 10px 0;
-    z-index: 99;
+    z-index: 9999;
     opacity: 0;
     visibility: hidden;
     background: #fff;

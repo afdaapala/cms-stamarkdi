@@ -4,6 +4,7 @@
     <section id="berita" class="berita  bg-light text-dark">
             <div class="container">
                  <!-- ======= Berita  Section ======= -->
+                 
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
   
@@ -21,20 +22,26 @@
   
                 <div class="meta-top">
                   <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">{{$post->user->name}}</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2020-01-01">{{$post->created_at}}</time></a></li>
-                   
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{$post->user->name}}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="2020-01-01">{{$post->created_at}}</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-tag"></i> <a href="#">{{$post->keywords}}</a></li>
+             
                   </ul>
                 </div><!-- End meta top -->
   
                 <div class="content ">
                     {{$post->desc}}
                  
-                </div><!-- End post content -->
+                </div>
+                <!-- End post content -->
   
              
   
-              </article><!-- End blog post -->
+              </article>
+              
+              <div>
+                <button type="button" class="mt-3 btn btn-primary "> <a class="text-light" href="{{ url('/berita') }}">Kembali</a></button>  
+              </div><!-- End blog post -->
   
           
   
@@ -56,7 +63,7 @@
                   <div class="mt-3">
                     @foreach ($recentPost as $p)
                     <div class="post-item mt-3">
-                      <img src="{{url('/storage/'.$p->cover)}}" alt="">
+                      <img src="{{url('/storage/'.$p->cover)}}" alt="" style="max-height: 50px; max-width: 80px">
                       <div>
                         <h4><a href="{{url('/berita/'.$p->slug)}}">{{$p->title}}</a></h4>
                         <time datetime="2020-01-01">{{$p->created_at}}</time>

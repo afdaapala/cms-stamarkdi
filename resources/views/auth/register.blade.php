@@ -62,7 +62,7 @@
                         </div>
 
 
-                        <div class="row mb-3">
+                        {{-- <div class="row mb-3">
                             <label for="captcha" class="col-md-4 col-form-label text-md-end">Captcha</label>
                             <div class="col-md-6 captcha">
                                 <span>{!! captcha_img() !!}</span>
@@ -76,7 +76,7 @@
                             <div class="col-md-6">
                                 <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -94,7 +94,8 @@
 @endsection
 @push('scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
+
+{{-- <script type="text/javascript">
     $('#reload').click(function () {
         $.ajax({
             type: 'GET',
@@ -104,5 +105,5 @@
             }
         });
     });
-</script>
+</script> --}}
 @endpush

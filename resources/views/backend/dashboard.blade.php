@@ -7,9 +7,10 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <h2 class="card-title text-primary">Selamat Datang di Website BMKG 🎉</h2>
+                            <h2 class="card-title text-primary">Selamat Datang di Website BMKG Sultra</h2>
                             <p class="mb-4">
-                                Badan Meteorologo Klimatologi dan Geofisika
+                                Badan Meteorologi Klimatologi dan Geofisika <br>
+                                Sulawesi Tenggara
                             </p>
 
 

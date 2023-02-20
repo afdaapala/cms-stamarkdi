@@ -5,19 +5,47 @@
         <section id="warning" class="warning  bg-light text-dark">
             <div class="container" data-aos="fade-right">
                 <div class="row align-items-center">
-                    <div class="col-md-9">
-                        <div class="warning-heading font-weight-bold border-bottom border-success ">
-                            Prakiraan Cuaca Perairan Sulawesi Tenggara
+                    <div class="col-md-8">
+                        <div class="col-header mb-2 border-bottom border-success">
+                            <h5>Prakiraan Cuaca</h5>
+    
                         </div>
-                        <div class="p-3 rounded m-2 " style="font-size:1em">
-                            <div class="border border-dark" id="mapmar"></div>
+                        <div class="swiper" id="swiper-cuaca" data-aos="fade-up" data-aos-delay="90">
+                            <div class="swiper-wrapper">
+                                @foreach ($data['dataCuaca'] as $d)
+                                    @php
+                                        $ampm = (int) date('H', strtotime($d->local_date)) > 4 && (int) date('H', strtotime($d->local_date)) < 18 ? 'am' : 'pm';
+                                    @endphp
+                                    <div class="swiper-slide">
+                                        <div
+                                            class="d-flex flex-column text-center p-1 m-1 shadow bg-white {{ $ampm }}">
+                                            <span class="card-lokasi font-weight-bold">{{ $d->kec }}</span>
+                                            <span class="card-waktu">
+                                                @php
+                                                    $time = date_create($d->local_date);
+                                                    echo date_format($time, 'H:i');
+                                                    
+                                                @endphp
+                                            </span>
+                                            <span class="card-img"><img src="{{ $d->icon }}"
+                                                    style="height:60px; width:60px;"></span>
+                                            <span class="card-kondisi">{{ $d->weather_desc }}</span>
+                                            <span class="card-suhu">{{ $d->t }} °C</span>
+                                            <span class="card-rh">{{ $d->hu }} %</span>
+                                        </div>
+                                    </div>
+                                @endforeach
+    
+                            </div>
+                            <div class="swiper-pagination"></div>
                         </div>
+                        
                     </div>
-                    <div class="col-md-3 card border-warning rounder">
-                            <div class="card-header bg-white"><h5><i class='fa-solid fa-exclamation-triangle' style="color:#ec971f;"></i> Peringatan Dini Cuaca Sulawesi Tenggara</h5></div>
+                    <div class="col-md-4 p-3 card border-warning mt-4">
+                            <div class="card-header bg-white"><h6><i class='fa-solid fa-exclamation-triangle' style="color:#ec971f;"></i> Peringatan Dini Cuaca Sulawesi Tenggara</h6></div>
                             {{-- <div class="card-body" style="font-size: 12px;">
                                 <img class="img-fluid" src="{{ $data['peringatanimg0'] }}" alt="gambar peringatan dini"><br> --}}
-                        <div class="warningtext">
+                        <div class="card-body p-2 pl-4">
                             <p class="limittext">
                             {{ $data['peringatanterakhir'] }} <br>
                             </p>
@@ -37,44 +65,19 @@
         <div class="container " data-aos="fade-up">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="col-header mb-2 border-bottom border-success">
-                        <h5>Prakiraan Cuaca</h5>
+                    <div class="warning-heading font-weight-bold border-bottom border-success">
+                        <h5>Prakiraan Cuaca Perairan Sulawesi Tenggara</h5>
                     </div>
-                    <div class="swiper" id="swiper-cuaca" data-aos="fade-up" data-aos-delay="100">
-                        <div class="swiper-wrapper">
-                            @foreach ($data['dataCuaca'] as $d)
-                                @php
-                                    $ampm = (int) date('H', strtotime($d->local_date)) > 4 && (int) date('H', strtotime($d->local_date)) < 18 ? 'am' : 'pm';
-                                @endphp
-                                <div class="swiper-slide">
-                                    <div
-                                        class="d-flex flex-column text-center p-2 m-2 shadow bg-white rounded {{ $ampm }}">
-                                        <span class="card-lokasi font-weight-bold">{{ $d->kec }}</span>
-                                        <span class="card-waktu">
-                                            @php
-                                                $time = date_create($d->local_date);
-                                                echo date_format($time, 'H:i');
-                                                
-                                            @endphp
-                                        </span>
-                                        <span class="card-img"><img src="{{ $d->icon }}"
-                                                style="height:60px; width:60px;"></span>
-                                        <span class="card-kondisi">{{ $d->weather_desc }}</span>
-                                        <span class="card-suhu">{{ $d->t }} °C</span>
-                                        <span class="card-rh">{{ $d->hu }} %</span>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                        <div class="swiper-pagination"></div>
+                    <div class="p-3 rounded" style="font-size:1em">
+                        <div class="border border-dark" id="mapmar"></div>
                     </div>
+                    
                 </div>
                 <div class="col-md-4">
-                    <div class="col-header mb-2 border-bottom border-success">
+                    <div class="col-header mb-4 border-bottom border-success">
                         <h5>Gempabumi Dirasakan</h5>
                     </div>
-                    <div class="content-gempa p-2 bg-white  border rounded">
+                    <div class="content-gempa p-3 bg-white  border rounded">
                         <div class="img-shakemap d-flex flex-column">
                             {{-- <a href="https://ews.bmkg.go.id/tews/data/{{ $data['dataGempa']->Infogempa->gempa->Shakemap }}"
                                 title="Gempabumi Terkini">
@@ -177,7 +180,9 @@
                         <h5>Citra Satelit</h5>
                     </div>
                     <div class="img-container bg-white p-3">
-                        <img class="img-fluid" src="https://inderaja.bmkg.go.id/IMAGE/HIMA/H08_EH_Indonesia.png" alt="Citra Satelit">
+                        <a data-fancybox class="popup" href="https://inderaja.bmkg.go.id/IMAGE/HIMA/H08_EH_Indonesia.png?id=<?php echo rand(100000, 999999); ?>">
+                            <img class="img-fluid" src="https://inderaja.bmkg.go.id/IMAGE/HIMA/H08_EH_Indonesia.png?id=<?php echo rand(100000, 999999); ?>" alt="Citra Satelit">  
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -185,7 +190,9 @@
                         <h5>Citra Radar</h5>
                     </div>
                     <div class="img-container bg-white p-3">
-                        <img class="img-fluid" src="https://inderaja.bmkg.go.id/Radar/Indonesia_ReflectivityQCComposite.png" alt="Citra Radar">
+                        <a data-fancybox class="popup" href="https://inderaja.bmkg.go.id/Radar/Indonesia_ReflectivityQCComposite.png?id=<?php echo rand(100000, 999999); ?>">
+                            <img class="img-fluid" src="https://inderaja.bmkg.go.id/Radar/Indonesia_ReflectivityQCComposite.png?id=<?php echo rand(100000, 999999); ?>" alt="Citra Radar">
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -193,7 +200,9 @@
                         <h5>Informasi Iklim</h5>
                     </div>
                     <div class="img-container bg-white p-3">
-                        <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/CEWS/pch/pch.bulan.1.cond1.png" alt="Informasi Iklim">
+                        <a data-fancybox class="popup" href="https://cdn.bmkg.go.id/DataMKG/CEWS/pch/pch.bulan.1.cond1.png?id=<?php echo rand(100000, 999999); ?>">
+                            <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/CEWS/pch/pch.bulan.1.cond1.png?id=<?php echo rand(100000, 999999); ?>" alt="Informasi Iklim">
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -201,7 +210,19 @@
                         <h5>Prakiraan Tinggi Gelombang Tinggi</h5>
                     </div>
                     <div class="img-container bg-white p-3">
-                        <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/MEWS/maritim/gelombang_maritim.png" alt="Prakiraan Gelombang Tinggi">
+                        <a data-fancybox class="popup" href="https://cdn.bmkg.go.id/DataMKG/MEWS/maritim/gelombang_maritim.png?id=<?php echo rand(100000, 999999); ?>">
+                            <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/MEWS/maritim/gelombang_maritim.png?id=<?php echo rand(100000, 999999); ?>" alt="Prakiraan Gelombang Tinggi">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-header border-bottom border-success mb-3">
+                        <h5>Prakiraan Angin</h5>
+                    </div>
+                    <div class="img-container bg-white p-3">
+                        <a data-fancybox class="popup" href="https://cdn.bmkg.go.id/DataMKG/MEWS/angin/streamline_d1.jpg?id=<?php echo rand(100000, 999999); ?>">
+                            <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/MEWS/angin/streamline_d1.jpg?id=<?php echo rand(100000, 999999); ?>" alt="Prakiraan Angin">
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -209,7 +230,9 @@
                         <h5>Potensi Kebakaran Hutan</h5>
                     </div>
                     <div class="img-container bg-white p-3">
-                        <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/MEWS/spartan/36_indonesia_ffmc_01.png" alt="Potensi Kebakaran Hutan">
+                        <a data-fancybox class="popup" href="https://cdn.bmkg.go.id/DataMKG/MEWS/spartan/36_indonesia_ffmc_01.png?id=<?php echo rand(100000, 999999); ?>">
+                            <img class="img-fluid" src="https://cdn.bmkg.go.id/DataMKG/MEWS/spartan/36_indonesia_ffmc_01.png?id=<?php echo rand(100000, 999999); ?>" alt="Potensi Kebakaran Hutan">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -350,7 +373,7 @@
         });
 
         // gempa map
-        var map = L.map('map', {attributionControl: false, zoomControl : false}).setView([{{ $data['dataGempa']->Infogempa->gempa->Coordinates }}], 6);
+        var map = L.map('map', {attributionControl: false, zoomControl : false}).setView([{{ $data['dataGempa']->Infogempa->gempa->Coordinates }}], 5);
 
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
             }).addTo(map);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FrontEndController extends Controller
 {
@@ -107,5 +108,55 @@ class FrontEndController extends Controller
 
 
     return view('frontend.berita', compact('post', 'recentPost'));
+  }
+
+  public function postingan()
+  {
+    // $recentPost = Post::with('user', 'category', 'tags')->limit(5)->get();
+    $recentPost = Post::all();
+
+    return view('frontend.postingan', compact('recentPost'));
+  }
+
+  public function citra()
+  {
+    $data = [];
+    return view('frontend.citra', compact('data'));
+  }
+
+  public function ibf()
+  {
+    $data = [];
+    return view('frontend.ibf', compact('data'));
+  }
+
+  public function display()
+  {
+    $data = [];
+    return view('frontend.display', compact('data'));
+  }
+
+  public function pertamina()
+  {
+    $data = [];
+    return view('frontend.display.pertamina-baubau', compact('data'));
+  }
+
+  public function pertaminakdi()
+  {
+    $data = [];
+    return view('frontend.display.pertamina-kendari', compact('data'));
+  }
+
+  public function gempa()
+  {
+    $data = [];
+    return view('frontend.gempa', compact('data'));
+  }
+
+  public function profil()
+  {
+    $data = [];
+    return view('frontend.profil', compact('data'));
   }
 }

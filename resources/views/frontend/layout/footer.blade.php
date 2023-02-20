@@ -26,9 +26,6 @@
             <li><a href="https://inatews.bmkg.go.id">InaTEWS</a></li>
           </ul>
         </div>
-
-       
-
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Kantor Pusat BMKG</h4>
           <p>
@@ -78,7 +75,7 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-light">
               Stasiun Meteorologi Maritim Kendari
             </h6>
             <p>Jl. Jend. Sudirman No.158<br>Kota Kendari, Sulawesi Tenggara 93127</p>
@@ -94,7 +91,7 @@
           <!-- Grid column -->
           <div class="col-md-2 col-lg-3 col-xl-3 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-light">
               Situs BMKG
             </h6>
             <ul>
@@ -120,7 +117,7 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-light">
               Aplikasi Mobile
             </h6>
                       <h4><a href="http://apps.bmkg.go.id" target="_blank">Info BMKG - Cuaca, Iklim, dan Gempabumi Indonesia</a></h4>
@@ -140,14 +137,14 @@
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-light">
               Media BMKG
             </h6>
-            <a class="embedmedia" href="https://www.bmkg.go.id/video/?p=kaleidoskop-bmkg-2019-dan-outlook-bmkg-2020" target="_blank">
-      <img class="img-fluid img-thumbnail loaded" data-original="https://cdn.bmkg.go.id/Web/thumbnail_refleksi-2019-Outlook2020.jpg" src="https://cdn.bmkg.go.id/Web/thumbnail_refleksi-2019-Outlook2020.jpg" alt="Media BMKG" />
+            <a class="embedmedia" href="https://www.bmkg.go.id/video/?p=profil-badan-meteorologi-klimatologi-dan-geofisika&lang=ID" target="_blank">
+      <img class="img-fluid img-thumbnail loaded" data-original="https://cdn.bmkg.go.id/Web/video-profil-bmkg.jpg" src="https://cdn.bmkg.go.id/Web/video-profil-bmkg.jpg" alt="Media BMKG" />
       <span class="playmedia"></span>
   </a>
-  <h4><a href="https://www.bmkg.go.id/video/?p=kaleidoskop-bmkg-2019-dan-outlook-bmkg-2020" target="_blank">Kaleidoskop BMKG 2019 dan Outlook BMKG 2020</a></h4>
+  <h4><a href="https://www.bmkg.go.id/video/?p=profil-badan-meteorologi-klimatologi-dan-geofisika&lang=ID" target="_blank">Vidio Profil BMKG</a></h4>
           </div>
           <!-- Grid column -->
         </div>
